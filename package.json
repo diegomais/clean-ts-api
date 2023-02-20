@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/diegomais/clean-ts-api/issues"
   },
-  "homepage": "https://github.com/diegomais/clean-ts-api#readme"
+  "homepage": "https://github.com/diegomais/clean-ts-api#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.7.3"
+  }
 }
