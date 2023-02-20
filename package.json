@@ -1,0 +1,26 @@
+{
+  "name": "clean-ts-api",
+  "version": "0.0.1",
+  "description": "Rest API in NodeJS using TypeScript, Test Driven Development, Clean Architecture and Design Patterns.",
+  "main": "dist/main/server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegomais/clean-ts-api.git"
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "tdd",
+    "clean architecture",
+    "design patterns"
+  ],
+  "author": "Diego Mais <diegomais.dev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diegomais/clean-ts-api/issues"
+  },
+  "homepage": "https://github.com/diegomais/clean-ts-api#readme"
+}
