@@ -4,7 +4,8 @@
   "description": "Rest API in NodeJS using TypeScript, Test Driven Development, Clean Architecture and Design Patterns.",
   "main": "dist/main/server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
+    "test:staged": "npm test -- --findRelatedTests",
     "prepare": "husky install"
   },
   "repository": {
@@ -41,6 +42,9 @@
     "typescript": "^4.9.5"
   },
   "lint-staged": {
-    "*.ts": "eslint"
+    "*.ts": [
+      "eslint",
+      "npm run test:staged"
+    ]
   }
 }
