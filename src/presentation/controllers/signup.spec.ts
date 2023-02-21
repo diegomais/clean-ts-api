@@ -1,8 +1,12 @@
 import { SignUpController } from './signup'
 
+function makeSut (): SignUpController {
+  return new SignUpController()
+}
+
 describe('SignUp Controller', () => {
   it('should return statusCode 400 and an error if no name is provided', () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest = {
       body: {
         email: 'any_email@example.com',
@@ -16,7 +20,7 @@ describe('SignUp Controller', () => {
   })
 
   it('should return statusCode 400 and an error if no email is provided', () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest = {
       body: {
         name: 'any_name@example.com',
@@ -30,7 +34,7 @@ describe('SignUp Controller', () => {
   })
 
   it('should return statusCode 400 and an error if no password is provided', () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest = {
       body: {
         email: 'any_email@example.com',
@@ -44,7 +48,7 @@ describe('SignUp Controller', () => {
   })
 
   it('should return statusCode 400 and an error if no passwordConfirmation is provided', () => {
-    const sut = new SignUpController()
+    const sut = makeSut()
     const httpRequest = {
       body: {
         email: 'any_email@example.com',
