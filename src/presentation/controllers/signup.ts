@@ -1,5 +1,8 @@
-export class SignUpController {
-  handle (httpRequest: any): any {
+import { type Controller } from '../protocols/controller'
+import { type HttpRequest, type HttpResponse } from '../protocols/http'
+
+export class SignUpController implements Controller {
+  handle (httpRequest: HttpRequest): HttpResponse {
     const requiredFields = ['name', 'email']
     for (const field of requiredFields) {
       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
@@ -10,5 +13,6 @@ export class SignUpController {
         }
       }
     }
+    return { body: undefined, statusCode: 200 }
   }
 }
