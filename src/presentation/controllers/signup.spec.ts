@@ -1,13 +1,30 @@
 import { MissingParamError } from '../errors/missing-param-error'
+import { type EmailValidator } from '../protocols/email-validator'
 import { SignUpController } from './signup'
 
-function makeSut (): SignUpController {
-  return new SignUpController()
+interface SutTypes {
+  sut: SignUpController
+  emailValidatorStub: EmailValidator
+}
+
+function makeSut (): SutTypes {
+  class EmailValidatorStub implements EmailValidator {
+    isValid (email: string): boolean {
+      return true
+    }
+  }
+  const emailValidatorStub = new EmailValidatorStub()
+  const sut = new SignUpController(emailValidatorStub)
+
+  return {
+    sut,
+    emailValidatorStub
+  }
 }
 
 describe('SignUp Controller', () => {
   it('should return statusCode 400 and an error if no name is provided', () => {
-    const sut = makeSut()
+    const { sut } = makeSut()
     const httpRequest = {
       body: {
         email: 'any_email@example.com',
@@ -21,7 +38,7 @@ describe('SignUp Controller', () => {
   })
 
   it('should return statusCode 400 and an error if no email is provided', () => {
-    const sut = makeSut()
+    const { sut } = makeSut()
     const httpRequest = {
       body: {
         name: 'any_name@example.com',
@@ -35,7 +52,7 @@ describe('SignUp Controller', () => {
   })
 
   it('should return statusCode 400 and an error if no password is provided', () => {
-    const sut = makeSut()
+    const { sut } = makeSut()
     const httpRequest = {
       body: {
         email: 'any_email@example.com',
@@ -49,7 +66,7 @@ describe('SignUp Controller', () => {
   })
 
   it('should return statusCode 400 and an error if no passwordConfirmation is provided', () => {
-    const sut = makeSut()
+    const { sut } = makeSut()
     const httpRequest = {
       body: {
         email: 'any_email@example.com',
