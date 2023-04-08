@@ -7,6 +7,13 @@ export function badRequest (error: Error): HttpResponse {
   }
 }
 
+export function internalServerError (error: Error): HttpResponse {
+  return {
+    body: error,
+    statusCode: 500
+  }
+}
+
 export function ok (data: any): HttpResponse {
   return {
     body: data,
