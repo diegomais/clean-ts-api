@@ -26,9 +26,11 @@
   },
   "homepage": "https://github.com/diegomais/clean-ts-api#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "validator": "^13.9.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.14.0",
     "@types/validator": "^13.7.14",
